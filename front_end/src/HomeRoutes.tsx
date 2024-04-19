@@ -13,7 +13,7 @@ interface HomeRoute {
 export const HomeRoutes: HomeRoute[] = [
     {
         data: {
-            name: 'Home'
+            name: 'Analíticas'
         },
         routeObject: {
             path: '/',
@@ -28,72 +28,12 @@ export const HomeRoutes: HomeRoute[] = [
     },
     {
         data: {
-            name: 'Page 0'
+            name: 'Productos'
         },
         routeObject: {
-            path: '/page0',
+            path: '/producs',
             element: (
-                <div>Page 0</div>
-            ),
-            loader: homeLoaderData,
-            errorElement: (
-                <ErrorPage />
-            )
-        }
-    },
-    {
-        data: {
-            name: 'page0/1'
-        },
-        routeObject: {
-            path: '/page0/1',
-            element: (
-                <div>page0/1</div>
-
-            ),
-            errorElement: (
-                <ErrorPage />
-            )
-        }
-    },
-    {
-        data: {
-            name: 'page0/2'
-        },
-        routeObject: {
-            path: '/page0/2',
-            element: (
-                <div>page0/2</div>
-
-            ),
-            errorElement: (
-                <ErrorPage />
-            )
-        }
-    },
-    {
-        data: {
-            name: 'page0/2/1'
-        },
-        routeObject: {
-            path: '/page0/2/1',
-            element: (
-                <div>page0/2</div>
-
-            ),
-            errorElement: (
-                <ErrorPage />
-            )
-        }
-    },
-    {
-        data: {
-            name: 'Page 1'
-        },
-        routeObject: {
-            path: '/page1',
-            element: (
-                <div>Page 1</div>
+                <div>Aquí se nostrará una lista de todos los items. Cada item al dar click en el abrirá su dashboard donde se verá el avance del modelo graficado, la predicción e histórico. Aquí tambien estará el botón de crear nuevo producto</div>
             ),
             // loader: homeLoaderData,
             errorElement: (
@@ -103,12 +43,12 @@ export const HomeRoutes: HomeRoute[] = [
     },
     {
         data: {
-            name: 'Page 2'
+            name: 'Provedores'
         },
         routeObject: {
-            path: '/page2',
+            path: '/prov',
             element: (
-                <div>Page 2</div>
+                <div>En este sitio se verán todos los provedores, con su información, etc. tendrá tambien un historico de ordenes que ha recibido y las que recibirá</div>
             ),
             // loader: homeLoaderData,
             errorElement: (
@@ -118,42 +58,12 @@ export const HomeRoutes: HomeRoute[] = [
     },
     {
         data: {
-            name: 'Page 3'
+            name: 'Ordenes'
         },
         routeObject: {
-            path: '/page3',
+            path: '/orders',
             element: (
-                <div>Page 3</div>
-            ),
-            // loader: homeLoaderData,
-            errorElement: (
-                <ErrorPage />
-            )
-        }
-    },
-    {
-        data: {
-            name: 'Page 4'
-        },
-        routeObject: {
-            path: '/page4',
-            element: (
-                <div>Page 4</div>
-            ),
-            // loader: homeLoaderData,
-            errorElement: (
-                <ErrorPage />
-            )
-        }
-    },
-    {
-        data: {
-            name: 'Page 48'
-        },
-        routeObject: {
-            path: '/page48',
-            element: (
-                <div>Page 48</div>
+                <div>Aqupi se verá todas las ordenes que se han hecho y las que se deben hacer. al dar click en cada orden se abrirá un sitio con todos los datos de la orden, productos y provedor.</div>
             ),
             // loader: homeLoaderData,
             errorElement: (

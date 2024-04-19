@@ -14,9 +14,7 @@ export const Home = () => {
                     {
                         homeData.status === 'ok' && homeData.homeData ?
                             <div>
-                                <p>{homeData.homeData.title}</p>
-                                <p>{homeData.homeData.description}</p>
-                                <p>{homeData.homeData.content}</p>
+                                Aquí habria un tablero con estadisticas generales.
                             </div> :
                             <p className='Home-noData'>No hay data</p>
                     }

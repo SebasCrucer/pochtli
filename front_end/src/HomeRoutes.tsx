@@ -13,7 +13,7 @@ interface HomeRoute {
 export const HomeRoutes: HomeRoute[] = [
     {
         data: {
-            name: 'Analíticas'
+            name: 'Analíticaszds'
         },
         routeObject: {
             path: '/',

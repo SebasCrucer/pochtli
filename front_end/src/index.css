@@ -67,7 +67,6 @@
 
 body {
   margin: 0;
-  transition: background-color 0.2s ease-in-out;
   overflow: scroll;
 }
 
@@ -107,14 +106,6 @@ button {
 
 button:disabled {
   opacity: 0.5 !important;
-}
-
-.light box-icon {
-  fill: var(--light);
-}
-
-.dark box-icon {
-  fill: var(--dark);
 }
 
 .light {

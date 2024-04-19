@@ -13,6 +13,17 @@
     justify-items: stretch;
     align-content: center;
     gap: 1rem;
+    z-index: 1;
+}
+
+.light .navBar {
+    background-color: var(--light);
+    border-bottom: 1px solid rgba(var(--RGB-shadow-dark), 0.05);
+}
+
+.dark .navBar {
+    background-color: var(--dark);
+    border-bottom: 1px solid rgba(var(--RGB-shadow-light), 0.05);
 }
 
 .navBar-MenuIcon {
@@ -141,13 +152,5 @@
 @media (min-width: 768px) {
     .navBar {
         padding: 0.5rem 2rem;
-    }
-
-    .light .navBar {
-        border-bottom: 1px solid rgba(var(--RGB-shadow-dark), 0.05);
-    }
-
-    .dark .navBar {
-        border-bottom: 1px solid rgba(var(--RGB-shadow-light), 0.05);
     }
 }

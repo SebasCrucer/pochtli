@@ -4,18 +4,19 @@ import sys
 
 try:
 
-    connection: str = sys.argv[0]  # connection path
-    headers: str = sys.argv[1]  # headers to search
+    connection: str = sys.argv[1]  # connection path
+    headers: str = sys.argv[2]  # headers to search
 
+    print(connection)
     condition: bool = True  # search condition
 
     df = pd.read_csv(connection)  # data frame
 
     df = df[headers.split(",")]  # split headers
 
-    if len(sys.argv) == 3:
-
-        exec(sys.argv[2])
+    if len(sys.argv) == 4:
+        print('heb'*10)
+        exec(sys.argv[3])
 
     rtn = [row.to_dict() for _, row in df.iterrows()]  # convert to list
 

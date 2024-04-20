@@ -16,7 +16,7 @@ export const products = Router()
 
 //     })
 
-products.get('/',
+products.post('/',
     async (req: Request, res: Response) => {
         try {
             const { id } = req.body;

@@ -2,7 +2,7 @@ import { Request, Response, Router } from 'express';
 
 export const providers = Router()
 
-providers.get('/',
+providers.post('/',
     async (req: Request, res: Response) => {
         try {
             const { id } = req.body;

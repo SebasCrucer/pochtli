@@ -1,5 +1,6 @@
 import { LoaderFunctionArgs } from "react-router-dom"
 import { getSessionDataFromGlobal } from "../../Utils/getSessionDataFromGlobal";
+import { API_URL } from "../../../config";
 
 interface productDashboardType {
     status: 'ok';
@@ -26,11 +27,35 @@ export const productDashboardLoaderData: ({ params }: LoaderFunctionArgs) => Pro
                 status: 401
             }
         }
+    } else {
+        const response = await fetch(API_URL + `/products/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: params.id as string,
+            })
+
+        })
+
+        if (!response.ok) {
+            const error: {
+                message: string;
+                stack: string;
+                error: {
+                    status: number;
+                };
+            } = await response.json()
+
+            throw {
+                status: 'error',
+                error: error.error
+            }
+        } else {
+            return { status: 'ok', productsData: await response.json() };
+        }
     }
-    const data = {
-        id: params.id as string,
-    }
-    return { status: 'ok', productsData: data };
 
 }
 

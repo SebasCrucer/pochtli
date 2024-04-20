@@ -1,5 +1,6 @@
 import { LoaderFunctionArgs } from "react-router-dom"
 import { getSessionDataFromGlobal } from "../../Utils/getSessionDataFromGlobal";
+import { API_URL } from "../../../config";
 
 interface orderDashboardType {
     status: 'ok';
@@ -26,11 +27,35 @@ export const orderDashboardLoaderData: ({ params }: LoaderFunctionArgs) => Promi
                 status: 401
             }
         }
+    } else {
+        const response = await fetch(API_URL + `/orders/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: params.id as string,
+            })
+
+        })
+
+        if (!response.ok) {
+            const error: {
+                message: string;
+                stack: string;
+                error: {
+                    status: number;
+                };
+            } = await response.json()
+
+            throw {
+                status: 'error',
+                error: error.error
+            }
+        } else {
+            return { status: 'ok', ordersData: await response.json() };
+        }
     }
-    const data = {
-        id: params.id as string,
-    }
-    return { status: 'ok', ordersData: data };
 
 }
 

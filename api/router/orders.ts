@@ -2,7 +2,7 @@ import { Request, Response, Router } from 'express';
 
 export const orders = Router()
 
-orders.get('/',
+orders.post('/',
     async (req: Request, res: Response) => {
         try {
             const { id } = req.body;

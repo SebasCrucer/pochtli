@@ -1,5 +1,6 @@
 import { LoaderFunctionArgs } from "react-router-dom"
 import { getSessionDataFromGlobal } from "../../Utils/getSessionDataFromGlobal";
+import { API_URL } from "../../../config";
 
 interface prevProductType {
     status: 'ok';
@@ -29,23 +30,32 @@ export const prevProductLoaderData: ({ params }: LoaderFunctionArgs) => Promise<
                 status: 401
             }
         }
+    } else {
+        const response = await fetch(API_URL + `/products/previews`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+
+        })
+
+        if (!response.ok) {
+            const error: {
+                message: string;
+                stack: string;
+                error: {
+                    status: number;
+                };
+            } = await response.json()
+
+            throw {
+                status: 'error',
+                error: error.error
+            }
+        } else {
+            return { status: 'ok', prevProductData: await response.json() };
+        }
     }
-    const data = [
-        { name: 'Martillos', id: "345345ht", price: 45, tend: 1 },
-        { name: 'Clavos', id: "35345fref", price: 5, tend: -1 },
-        { name: 'Tornillos', id: "34df45ht", price: 3, tend: -1 },
-        { name: 'Tuercas', id: "345345ht", price: 2, tend: -1 },
-        { name: 'Llaves', id: "345345ht", price: 15, tend: 1 },
-        { name: 'Destornilladores', id: "345345ht", price: 10, tend: -1 },
-        { name: 'Sierras', id: "345345ht", price: 30, tend: -1 },
-        { name: 'Taladros', id: "345345ht", price: 50, tend: 1 },
-        { name: 'Pinturas', id: "345345ht", price: 25, tend: -1 },
-        { name: 'Brochas', id: "345345ht", price: 5, tend: 1 },
-        { name: 'Cinta', id: "345345ht", price: 1, tend: 1 },
-        { name: 'Cajas', id: "345345ht", price: 10, tend: 1 },
-        { name: 'Cables', id: "345345ht", price: 7, tend: -1 },
-    ]
-    return { status: 'ok', prevProductData: data };
 
 }
 

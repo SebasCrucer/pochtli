@@ -2,6 +2,7 @@ import { useLoaderData, useNavigation } from 'react-router-dom';
 import './Home.css'
 import { homeLoaderData } from './homeLoader';
 import { PageContainer } from '../../components/PageContainer';
+import SnippedCard from '../../components/SnippedCard';
 
 export const Home = () => {
 
@@ -13,13 +14,7 @@ export const Home = () => {
             <PageContainer title='Analiticas' from='/'>
                 <div className='Home-container'>
                     <div className='Home-data'>
-                        {
-                            homeData.status === 'ok' && homeData.homeData ?
-                                <div>
-                                    Aquí habria un tablero con estadisticas generales.
-                                </div> :
-                                <p className='Home-noData'>No hay data</p>
-                        }
+
                     </div>
                 </div>
             </PageContainer>

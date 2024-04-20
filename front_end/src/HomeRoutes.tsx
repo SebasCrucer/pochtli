@@ -15,7 +15,7 @@ interface HomeRoute {
 export const HomeRoutes: HomeRoute[] = [
     {
         data: {
-            name: 'Analítics'
+            name: 'Inicio'
         },
         routeObject: {
             path: '/',

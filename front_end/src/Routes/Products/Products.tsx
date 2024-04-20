@@ -33,7 +33,7 @@ export const Products = () => {
                             }))}
                             columns={['id', 'nombre', 'cant.', 'tendencia']}
                             onClick={(i) => {
-                                navigate(`/product/${productsData.prevProductData[i].id}`)
+                                navigate(`/products/${productsData.prevProductData[i].id}`)
                             }}
                         />
                     </div>

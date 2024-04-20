@@ -9,6 +9,12 @@ import { Providers } from './Routes/Provider/Provider';
 import { Orders } from './Routes/Orders/Orders';
 import { ordersLoaderData } from './Routes/Orders/ordersLoader';
 import { prevProductLoaderData } from './Routes/Products/productsLoader';
+import { OrderDashboard } from './Routes/OrderDashboard/OrderDashboard';
+import { orderDashboardLoaderData } from './Routes/OrderDashboard/OrderDashboardLoader';
+import { ProductDashboard } from './Routes/ProductDashboard/ProductDashboard';
+import { productDashboardLoaderData } from './Routes/ProductDashboard/ProductDashboardLoader';
+import { ProviderDashboard } from './Routes/ProviderDashboard/ProviderDashboard';
+import { providerDashboardLoaderData } from './Routes/ProviderDashboard/ProviderDashboardLoader';
 
 
 interface HomeRoute {
@@ -32,12 +38,13 @@ export const HomeRoutes: HomeRoute[] = [
             )
         }
     },
+
     {
         data: {
             name: 'Productos'
         },
         routeObject: {
-            path: '/producs',
+            path: '/products',
             element: (
                 <Products />
             ),
@@ -49,10 +56,24 @@ export const HomeRoutes: HomeRoute[] = [
     },
     {
         data: {
+            name: 'Producto'
+        },
+        routeObject: {
+            path: '/products/:id',
+            element: <ProductDashboard />,
+            loader: productDashboardLoaderData,
+            errorElement: (
+                <ErrorPage />
+            ),
+        }
+    },
+
+    {
+        data: {
             name: 'Proveedores'
         },
         routeObject: {
-            path: '/prov',
+            path: '/provs',
             element: (
                 <Providers />
             ),
@@ -62,6 +83,20 @@ export const HomeRoutes: HomeRoute[] = [
             )
         }
     },
+    {
+        data: {
+            name: 'Proveedor'
+        },
+        routeObject: {
+            path: '/provs/:id',
+            element: <ProviderDashboard />,
+            loader: providerDashboardLoaderData,
+            errorElement: (
+                <ErrorPage />
+            ),
+        }
+    },
+
     {
         data: {
             name: 'Ordenes'
@@ -77,4 +112,18 @@ export const HomeRoutes: HomeRoute[] = [
             )
         }
     },
+    {
+        data: {
+            name: 'Orden'
+        },
+        routeObject: {
+            path: '/orders/:id',
+            element: <OrderDashboard />,
+            loader: orderDashboardLoaderData,
+            errorElement: (
+                <ErrorPage />
+            ),
+        }
+    },
+
 ];

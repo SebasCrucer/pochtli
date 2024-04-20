@@ -1,11 +1,11 @@
-.Products-container {
+.Providers-container {
     display: grid;
-    grid-template-columns: 68% 30%;
+    grid-template-columns: 62% 30%;
     justify-content: space-between;
     padding: 50px 60px;
 }
 
-.Products-side {
+.Providers-side {
     display: flex;
     flex-direction: column;
     gap: 20px;

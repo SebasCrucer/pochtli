@@ -16,8 +16,8 @@ export const Providers = () => {
         <PageContainer title='Proveedores'>
             {
                 providersData?.status === 'ok' &&
-                <div className='Products-container'>
-                    <div className='Products-table'>
+                <div className='Providers-container'>
+                    <div className='Providers-table'>
                         <Table
                             data={providersData.prevProviderData.map(values => ({
                                 ...values,
@@ -25,11 +25,11 @@ export const Providers = () => {
                             }))}
                             columns={['id', 'nombre', 'contact', 'phone', 'email']}
                             onClick={(i) => {
-                                navigate(`/product/${providersData.prevProviderData[i].id}`)
+                                navigate(`/provs/${providersData.prevProviderData[i].id}`)
                             }}
                         />
                     </div>
-                    <div className="Products-side">
+                    <div className="Providers-side">
                         <ControlsCard
                             cantidad={
                                 providersData.prevProviderData.length

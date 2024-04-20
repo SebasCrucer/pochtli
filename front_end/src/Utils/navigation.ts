@@ -17,17 +17,63 @@ export const getPathNamesFromText = (targetPath: string, routesJson: routesData[
     return pathsAndNames;
 };
 
+const findMatchingRoute = (currentPath: string, routesJson: routesData[]): routesData | null => {
+    // Normalizar currentPath para asegurar que comienza con '/'
+    if (!currentPath.startsWith('/')) {
+        currentPath = '/' + currentPath;
+    }
+
+    // Dividir currentPath en segmentos, ignorando cualquier segmento vacío
+    const currentPathSegments = currentPath.split('/').filter(segment => segment !== '');
+
+    // Iterar sobre cada ruta en routesJson para encontrar una coincidencia
+    for (const route of routesJson) {
+        const routeSegments = route.path.split('/').filter(segment => segment !== '');
+
+        // Suponer que la ruta coincide hasta que se encuentre una discrepancia
+        let matches = true;
+        for (let i = 0; i < routeSegments.length; i++) {
+            const isVariableSegment = routeSegments[i].startsWith(':');
+            const segmentsMatch = routeSegments[i] === currentPathSegments[i];
+
+            // Si el segmento actual no es una variable y no coincide, descartar esta ruta
+            if (!isVariableSegment && !segmentsMatch) {
+                matches = false;
+                break;
+            }
+        }
+
+        // Si todos los segmentos coinciden (teniendo en cuenta las variables), devolver esta ruta
+        if (matches) {
+            return route;
+        }
+    }
+
+    // Si ninguna ruta coincide, devolver null
+    return null;
+};
+
 export const getSiblingRoutes = (currentPath: string, routesJson: routesData[]): routesData[] => {
     if (!currentPath.startsWith('/')) {
         currentPath = '/' + currentPath;
     }
-    const parentPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
+
+    const matchingRoute = findMatchingRoute(currentPath, routesJson)
+
+    if (!matchingRoute) {
+        console.error('No matching route found for the given currentPath.');
+        return [];
+    }
+
+    const parentPath = matchingRoute.path.split(':')[0].substring(0, matchingRoute.path.lastIndexOf('/'));
+
     const siblingRoutes = routesJson.filter(route => {
         const routeParentPath = route.path.substring(0, route.path.lastIndexOf('/'));
-        return routeParentPath === parentPath;
+        return routeParentPath === parentPath && !route.path.includes(':');
     });
     return siblingRoutes;
 };
+
 
 export const getChildRoutes = (currentPath: string, routesJson: routesData[]): routesData[] => {
     if (!currentPath.startsWith('/')) {
@@ -38,7 +84,7 @@ export const getChildRoutes = (currentPath: string, routesJson: routesData[]): r
     const childRoutes = routesJson.filter(route => {
         if (!route.path.startsWith(normalizedCurrentPath)) return false;
         const remainingPath = route.path.substring(normalizedCurrentPath.length);
-        return !remainingPath.includes('/');
+        return !remainingPath.includes('/') && !route.path.includes(':');
     });
 
     return childRoutes;

@@ -10,7 +10,7 @@ export const Home = () => {
 
     return (
         <section id='Home' className={state === 'loading' ? 'page-loading' : ''}>
-            <PageContainer title='Analiticas' from='/'>
+            <PageContainer title='Analiticas'>
                 <div className='Home-container'>
                     <div className='Home-data'>
                         {JSON.stringify(homeData)}

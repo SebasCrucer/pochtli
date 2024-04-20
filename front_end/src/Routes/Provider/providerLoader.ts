@@ -1,5 +1,6 @@
 import { LoaderFunctionArgs } from "react-router-dom"
 import { getSessionDataFromGlobal } from "../../Utils/getSessionDataFromGlobal";
+import { API_URL } from "../../../config";
 
 interface prevProviderType {
     status: 'ok';
@@ -30,60 +31,33 @@ export const prevProviderData: ({ params }: LoaderFunctionArgs) => Promise<
                 status: 401
             }
         }
+    } else {
+        const response = await fetch(API_URL + `/providers/previews`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+
+        })
+
+        if (!response.ok) {
+            const error: {
+                message: string;
+                stack: string;
+                error: {
+                    status: number;
+                };
+            } = await response.json()
+
+            throw {
+                status: 'error',
+                error: error.error
+            }
+        } else {
+            return { status: 'ok', prevProviderData: await response.json() }
+        }
     }
-    // datos del provedor, el tipo apun está por definir
-    const data = [
-        {
-            name: 'Trupper',
-            id: "345345ht",
-            contact: 'Juan Perez',
-            phone: '123456789',
-            email: 'juanperez@gmail.com'
-        },
-        {
-            name: 'Ferreteria del centro',
-            id: "35345fref",
-            contact: 'Maria Lopez',
-            phone: '987654321',
-            email: 'ferre@gial.com',
-        },
-        {
-            name: 'Ferreteria del centro',
-            id: "35345fref",
-            contact: 'Maria Lopez',
-            phone: '987654321',
-            email: 'ferre@gial.com',
-        },
-        {
-            name: 'Ferreteria del centro',
-            id: "35345fref",
-            contact: 'Maria Lopez',
-            phone: '987654321',
-            email: 'ferre@gial.com',
-        },
-        {
-            name: 'Ferreteria del centro',
-            id: "35345fref",
-            contact: 'Maria Lopez',
-            phone: '987654321',
-            email: 'ferre@gial.com',
-        },
-        {
-            name: 'Ferreteria del centro',
-            id: "35345fref",
-            contact: 'Maria Lopez',
-            phone: '987654321',
-            email: 'ferre@gial.com',
-        },
-        {
-            name: 'Ferreteria del centro',
-            id: "35345fref",
-            contact: 'Maria Lopez',
-            phone: '987654321',
-            email: 'ferre@gial.com',
-        },
-    ]
-    return { status: 'ok', prevProviderData: data };
+
 
 }
 

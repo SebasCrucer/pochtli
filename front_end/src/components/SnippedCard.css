@@ -8,6 +8,7 @@
   }
 
 .light .SnippedCard-container{ background: rgb(216, 216, 225);}
+.dark .SnippedCard-container{ background: rgb(41, 41, 41);}
   
   .SnippedCard-boton {
     padding: 10px 10px 10px 20px;
@@ -21,8 +22,19 @@
     background: #0000;
   }
 
+  .SnippedCard-icon{
+    display: grid;
+    align-self: center;
+    fill: #fff;
+   & >*{
+    width: 20px;
+    height: 20px;
+  }
+  
+  }
+
   .light .SnippedCard-boton{ 
-    color: rgb(0, 0, 0);   
+    color: rgb(49, 49, 49);   
 }
   .dark .SnippedCard-boton{ color: #fff;}
   
@@ -30,8 +42,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%; /* Forma circular */
     color: white; /* Color del icono */
   }

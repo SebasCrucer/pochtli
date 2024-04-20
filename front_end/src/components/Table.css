@@ -1,0 +1,62 @@
+.Table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Table-rows {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Table-values-column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    --value-radius: 50px
+}
+
+.Table-values-column:nth-child(1) .Table-value {
+    border-radius: var(--value-radius) 0 0 var(--value-radius);
+}
+
+.Table-values-column:last-child .Table-value {
+    border-radius: 0 var(--value-radius) var(--value-radius) 0;
+}
+
+.Table-key {
+    display: flex;
+    justify-content: start;
+    opacity: 0.5;
+    margin-bottom: 10px;
+    padding: 0 20px
+}
+
+.Table-value {
+    display: flex;
+    justify-content: start;
+    padding: 10px 20px;
+    opacity: 0.8;
+}
+
+.Table-value:nth-child(odd) {
+    background-color: #8383830e;
+}
+
+.Table-value.clickable {
+    cursor: pointer;
+}
+
+.Table-value.clickable:hover {
+    opacity: 1;
+}
+
+.Product-tend.up {
+    fill: var(--green)
+}
+
+.Product-tend.down {
+    fill: var(--red);
+    transform: rotate(180deg);
+}

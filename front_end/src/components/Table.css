@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    max-width: fit-content;
 }
 
 .Table-rows {
@@ -10,11 +11,13 @@
 }
 
 .Table-values-column {
-    width: 100%;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    --value-radius: 50px
+    overflow: hidden;
+    --value-radius: 50px;
+    text-overflow: ellipsis;
 }
 
 .Table-values-column:nth-child(1) .Table-value {
@@ -26,18 +29,22 @@
 }
 
 .Table-key {
-    display: flex;
-    justify-content: start;
+    display: block;
+    text-align: start;
     opacity: 0.5;
     margin-bottom: 10px;
     padding: 0 20px
 }
 
 .Table-value {
-    display: flex;
-    justify-content: start;
+    display: block;
     padding: 10px 20px;
     opacity: 0.8;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: start;
+    height: 25px;
 }
 
 .Table-value:nth-child(odd) {

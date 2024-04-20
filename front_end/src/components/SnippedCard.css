@@ -1,62 +1,77 @@
 .SnippedCard-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Espacio entre botones */
-    padding: 20px;
-    border-radius: 20px;
-    width: 250px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Espacio entre botones */
+  padding: 20px;
+  border-radius: 20px;
+  width: 250px;
+  background-color: #8383830e;
+}
 
-.light .SnippedCard-container{ background: rgb(216, 216, 225);}
-.dark .SnippedCard-container{ background: rgb(41, 41, 41);}
-  
-  .SnippedCard-boton {
-    padding: 10px 10px 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 240px; /* Esquinas redondeadas */
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #0000;
-  }
+.SnippedCard-boton {
+  padding: 10px 10px 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 240px;
+  /* Esquinas redondeadas */
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0000;
+  transition: background-color 0.2s;
+}
 
-  .SnippedCard-icon{
-    display: grid;
-    align-self: center;
-    fill: #fff;
-   & >*{
+.SnippedCard-boton:hover {
+  background-color: #8787871a;
+}
+
+.SnippedCard-icon {
+  display: grid;
+  align-self: center;
+
+  &>* {
     width: 20px;
     height: 20px;
   }
-  
-  }
 
-  .light .SnippedCard-boton{ 
-    color: rgb(49, 49, 49);   
 }
-  .dark .SnippedCard-boton{ color: #fff;}
-  
-  .SnippedCard-icono-circulo {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%; /* Forma circular */
-    color: white; /* Color del icono */
-  }
 
-  .light .SnippedCard-icono-circulo{
-    background: #C767CF;
-    color: #ffffff;
-  }
+.light .SnippedCard-icon {
+  fill: var(--dark);
+}
 
-  .dark .SnippedCard-icono-circulo{
-    background: #a325ae;
-    color: #fff;
-  }
-  
-  /* Asegúrate de incluir la fuente de iconos que prefieras, como Font Awesome */
-  
+.dark .SnippedCard-icon {
+  fill: var(--light);
+}
+
+.light .SnippedCard-boton {
+  color: rgb(49, 49, 49);
+}
+
+.dark .SnippedCard-boton {
+  color: #fff;
+}
+
+.SnippedCard-icono-circulo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* Forma circular */
+  color: white;
+  /* Color del icono */
+}
+
+.light .SnippedCard-icono-circulo {
+  color: #ffffff;
+}
+
+.dark .SnippedCard-icono-circulo {
+  color: #fff;
+}
+
+/* Asegúrate de incluir la fuente de iconos que prefieras, como Font Awesome */

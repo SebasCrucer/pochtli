@@ -1,24 +1,28 @@
 import './SnippedCard.css'; // Asegúrate de crear un archivo CSS con este nombre
+import React from 'react';
 
-const SnippedCard = () => {
+const SnippedCard = ({ objeto, obj1,  icon, icon2 }:{
+  objeto: string
+  obj1: String
+  icon: React.ReactElement
+  icon2: React.ReactElement
+}) => {
   return (
     <div className="SnippedCard-container">
       <button className="SnippedCard-boton">
-        Agregar Distribuidor
+        Agregar {objeto}
         <span className="SnippedCard-icono-circulo">
-          <i className="fas fa-plus"></i> {/* Icono de ejemplo */}
+        <div className="SnippedCard-icon">
+                {React.cloneElement(icon, { className: 'SnippedCard-icon' })}
+            </div>
         </span>
       </button>
       <button className="SnippedCard-boton">
-        Filtrar
+         {obj1}
         <span className="SnippedCard-icono-circulo">
-          <i className="fas fa-filter"></i> {/* Icono de ejemplo */}
-        </span>
-      </button>
-      <button className="SnippedCard-boton">
-        Filtrar
-        <span className="SnippedCard-icono-circulo">
-          <i className="fas fa-filter"></i> {/* Icono de ejemplo */}
+        <div className="SnippedCard-icon">
+                {React.cloneElement(icon2, { className: 'SnippedCard-icon' })}
+            </div>
         </span>
       </button>
     </div>

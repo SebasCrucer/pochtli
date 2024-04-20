@@ -15,6 +15,7 @@ import { ProductDashboard } from './Routes/ProductDashboard/ProductDashboard';
 import { productDashboardLoaderData } from './Routes/ProductDashboard/ProductDashboardLoader';
 import { ProviderDashboard } from './Routes/ProviderDashboard/ProviderDashboard';
 import { providerDashboardLoaderData } from './Routes/ProviderDashboard/ProviderDashboardLoader';
+import { newDataAction } from './Routes/Home/uploadCSVAction';
 
 
 interface HomeRoute {
@@ -35,7 +36,13 @@ export const HomeRoutes: HomeRoute[] = [
             loader: homeLoaderData,
             errorElement: (
                 <ErrorPage />
-            )
+            ),
+            children: [
+                {
+                    action: newDataAction,
+                    path: '/add'
+                }
+            ]
         }
     },
 

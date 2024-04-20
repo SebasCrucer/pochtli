@@ -1,0 +1,61 @@
+.Analiticas_controls {
+    display: flex;
+    gap: 10px;
+}
+
+.fileLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 4px 20px;
+    border-radius: 12px;
+    background-color: var(--cooper);
+    /* margin: 0 100px; */
+    width: min-content;
+    height: min-content;
+    /* margin: 60px auto; */
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+    margin: 0;
+    font-weight: 600;
+    text-wrap: nowrap;
+    color: var(--light);
+    border: none;
+}
+
+.fileLabel.loaded {
+    background-color: #5e5e5e61;
+}
+
+.Analiticas_controls box-icon {
+    fill: var(--light);
+}
+
+.fileLabel:hover {
+    box-shadow: 0 0 3px 1px rgba(var(--RGB-cooper), 0.5);
+    opacity: 1;
+}
+
+.Analiticas_controls button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 4px 20px;
+    border-radius: 12px;
+    background-color: var(--cooper);
+    /* margin: 0 100px; */
+    width: min-content;
+    height: min-content;
+    /* margin: 60px auto; */
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+    margin: 0;
+    font-weight: 600;
+    text-wrap: nowrap;
+    color: var(--light);
+    border: none;
+}

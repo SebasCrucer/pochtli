@@ -41,6 +41,9 @@ products.get('/previews',
 
             const data = await ProductDB.getProducts()
 
+            console.log(data);
+
+
             const previewData = data!.map((product) => {
                 return {
                     name: product.product_code,

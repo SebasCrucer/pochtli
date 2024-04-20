@@ -2,7 +2,7 @@ import { exec } from "child_process";
 
 export const pyFunc = (dotpy: string, params: string[]) => {
     return new Promise((resolve, reject) => {
-        exec(`python ${dotpy} ${params.join(' ')}`, { cwd: '../' }, (error, stdout, stderr) => {
+        exec(`python ${dotpy} ${params.join(' ')}`, { cwd: '../', maxBuffer: 9999999999 }, (error, stdout, stderr) => {
             if (error) {
                 console.error(`Error ejecutando el script: ${error}`);
                 reject(`Error ejecutando el script: ${error}`);

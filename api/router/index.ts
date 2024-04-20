@@ -3,6 +3,7 @@ import { userssession } from "./userssession"
 import { products } from "./products"
 import { providers } from "./providers"
 import { orders } from "./orders"
+import { newData } from "./newData"
 
 export const routerApi = (app: Express) => {
 
@@ -17,5 +18,7 @@ export const routerApi = (app: Express) => {
     AppRouter.use('/providers', providers)
 
     AppRouter.use('/orders', orders)
+
+    AppRouter.use('/newData', newData)
 
 }

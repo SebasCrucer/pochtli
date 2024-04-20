@@ -24,7 +24,7 @@ export const Orders = () => {
                             }))}
                             columns={['id', 'nombre', 'contact', 'phone', 'email']}
                             onClick={(i) => {
-                                navigate(`/product/${ordersData.ordersData[i].id}`)
+                                navigate(`/orders/${ordersData.ordersData[i].id}`)
                             }}
                         />
                     </div>

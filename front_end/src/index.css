@@ -12,7 +12,7 @@
   --light: rgb(244, 244, 255);
   /* --dark: #000000;
   --light: #ffffff; */
-  --cooper: rgb(255, 82, 82);
+  --cooper: rgb(2, 178, 175);
   --shadow-light: rgb(228, 228, 228);
   --shadow-dark: rgb(23, 23, 23);
   --red: rgb(255, 82, 113);
@@ -21,9 +21,7 @@
 
   --RGB-dark: 36, 36, 36;
   --RGB-light: 244, 244, 255;
-  --RGB-cooper: 255,
-    82,
-    82;
+  --RGB-cooper: 2, 178, 175;
   --RGB-shadow-light: 228, 228, 228;
   --RGB-shadow-dark: 23, 23, 23;
   --RGB-red: 255, 82, 113;

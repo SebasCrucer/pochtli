@@ -1,4 +1,6 @@
 import { createContext, useEffect, useState } from "react";
+import { ThemeProvider as MUIThemeProvider, createTheme } from '@mui/material/styles';
+import { PaletteMode } from "@mui/material";
 
 type ThemeContext = {
     theme: string;
@@ -21,7 +23,13 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            {children}
+            <MUIThemeProvider theme={createTheme({
+                palette: {
+                    mode: theme as PaletteMode,
+                },
+            })}>
+                {children}
+            </MUIThemeProvider>
         </ThemeContext.Provider>
     );
 };

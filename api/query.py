@@ -9,6 +9,10 @@ try:
 
     condition: bool = True  # search condition
 
+    df = pd.read_csv(connection)  # data frame
+
+    df = df[headers.split(",")]  # split headers
+
     if len(sys.argv) == 3:
         # search continue symbols in condition string
         pattern = re.compile(r'(\w+)([><=!]+)(\w+)')
@@ -33,11 +37,7 @@ try:
 
         res = "".join(res)
 
-        exec(res)
-
-    df = pd.read_csv(connection)  # data frame
-
-    df = df[headers.split(",")]  # split headers
+        df = df[exec(res)]
 
     rtn = [row.to_dict() for _, row in df.iterrows()]  # convert to list
 

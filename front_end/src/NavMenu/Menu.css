@@ -34,6 +34,7 @@
     align-content: space-between;
     margin: 0;
     height: calc(100vh - var(--navbar-height));
+    width: inherit;
 }
 
 .Menu-options>div {
@@ -61,6 +62,11 @@
     height: 54px;
     cursor: pointer;
     transition: background-color 0.1s ease-in-out;
+}
+
+.Menu-options p {
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .Menu-top a.active li {

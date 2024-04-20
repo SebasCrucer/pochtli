@@ -1,0 +1,62 @@
+.SnippedCard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre botones */
+    padding: 20px;
+    border-radius: 20px;
+    width: 250px;
+  }
+
+.light .SnippedCard-container{ background: rgb(216, 216, 225);}
+.dark .SnippedCard-container{ background: rgb(41, 41, 41);}
+  
+  .SnippedCard-boton {
+    padding: 10px 10px 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 240px; /* Esquinas redondeadas */
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0000;
+  }
+
+  .SnippedCard-icon{
+    display: grid;
+    align-self: center;
+    fill: #fff;
+   & >*{
+    width: 20px;
+    height: 20px;
+  }
+  
+  }
+
+  .light .SnippedCard-boton{ 
+    color: rgb(49, 49, 49);   
+}
+  .dark .SnippedCard-boton{ color: #fff;}
+  
+  .SnippedCard-icono-circulo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Forma circular */
+    color: white; /* Color del icono */
+  }
+
+  .light .SnippedCard-icono-circulo{
+    background: #C767CF;
+    color: #ffffff;
+  }
+
+  .dark .SnippedCard-icono-circulo{
+    background: #a325ae;
+    color: #fff;
+  }
+  
+  /* Asegúrate de incluir la fuente de iconos que prefieras, como Font Awesome */
+  

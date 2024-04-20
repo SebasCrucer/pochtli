@@ -3,6 +3,8 @@ import { HomeRouteData } from './NavMenu/Menu';
 import { ErrorPage } from './ErrorPage/ErrorPage';
 import { homeLoaderData } from './Routes/Home/homeLoader';
 import { RouteObject } from 'react-router-dom';
+import { Products } from './Routes/Products/Products';
+import { prevProductLoaderData } from './Routes/Products/productsLoader';
 
 
 interface HomeRoute {
@@ -13,7 +15,7 @@ interface HomeRoute {
 export const HomeRoutes: HomeRoute[] = [
     {
         data: {
-            name: 'Analíticas'
+            name: 'Inicio'
         },
         routeObject: {
             path: '/',
@@ -33,9 +35,9 @@ export const HomeRoutes: HomeRoute[] = [
         routeObject: {
             path: '/producs',
             element: (
-                <div>Aquí se nostrará una lista de todos los items. Cada item al dar click en el abrirá su dashboard donde se verá el avance del modelo graficado, la predicción e histórico. Aquí tambien estará el botón de crear nuevo producto</div>
+                <Products />
             ),
-            // loader: homeLoaderData,
+            loader: prevProductLoaderData,
             errorElement: (
                 <ErrorPage />
             )
@@ -48,9 +50,9 @@ export const HomeRoutes: HomeRoute[] = [
         routeObject: {
             path: '/prov',
             element: (
-                <div>En este sitio se verán todos los provedores, con su información, etc. tendrá tambien un historico de ordenes que ha recibido y las que recibirá</div>
+                <Products />
             ),
-            // loader: homeLoaderData,
+            loader: prevProductLoaderData,
             errorElement: (
                 <ErrorPage />
             )

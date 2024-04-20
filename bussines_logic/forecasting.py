@@ -45,7 +45,8 @@ if __name__ == "__main__":
     ids = [group["product_code"].iloc[0] for _, group in df_group]
     df_groups = [group for _, group in df_group]
 
-    for product_index in range(15, 244):
+    for product_index in range(0,1):
+        product_index = 9
         df = df_groups[product_index]  # <-------------
 
         # set initial p_n
@@ -68,7 +69,7 @@ if __name__ == "__main__":
         p_n = []
         pi = []
 
-        rho = 0.8
+        rho = 0.1
         while rho <= 1:
 
             p_n.append(df["storage"].iloc[0])

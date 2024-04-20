@@ -3,56 +3,48 @@ import { PageContainer } from "../../components/PageContainer"
 import { Table } from "../../components/Table";
 import { ControlsCard } from "../../components/ControllsCard";
 import { formatearFecha } from "../../Utils/dates";
-import './Products.css'
+import './Provider.css'
 import SnippedCard from "../../components/SnippedCard";
-import { prevProductLoaderData } from "./productsLoader";
+import { prevProviderLoaderData } from "./providerLoader";
 
-export const Products = () => {
-    const productsData = useLoaderData() as prevProductLoaderData;
+export const Providers = () => {
+    const providersData = useLoaderData() as prevProviderLoaderData;
 
     const navigate = useNavigate();
 
     return (
-        <PageContainer title='Productos'>
+        <PageContainer title='Proveedores'>
             {
-                productsData?.status === 'ok' &&
+                providersData?.status === 'ok' &&
                 <div className='Products-container'>
                     <div className='Products-table'>
                         <Table
-                            data={productsData.prevProductData.map(values => ({
+                            data={providersData.prevProviderData.map(values => ({
                                 ...values,
-                                ['tendencia']: values.tend > 0 ? <box-icon
-                                    name='up-arrow-alt'
-                                    class='Product-tend up'
-                                /> :
-                                    <box-icon
-                                        name='up-arrow-alt'
-                                        class='Product-tend down'
-                                    />,
                                 ["nombre"]: values.name
                             }))}
-                            columns={['id', 'nombre', 'cant.', 'tendencia']}
+                            columns={['id', 'nombre', 'contact', 'phone', 'email']}
                             onClick={(i) => {
-                                navigate(`/product/${productsData.prevProductData[i].id}`)
+                                navigate(`/product/${providersData.prevProviderData[i].id}`)
                             }}
                         />
                     </div>
                     <div className="Products-side">
                         <ControlsCard
                             cantidad={
-                                productsData.prevProductData.length
+                                providersData.prevProviderData.length
                             }
                             fecha={formatearFecha(new Date())}
                             color="#8DFAD3"
                             color2="#8DFAD335"
                             icon={<box-icon name='box' />}
-                            title="Productos"
+                            title="Proveedores"
                         />
                         <SnippedCard
                             actions={[
                                 {
                                     icon: <box-icon name='plus' />,
-                                    name: 'Agregar Distribuidor',
+                                    name: 'Agregar Proveedor',
                                     onClick: () => {
                                         console.log('Add');
 

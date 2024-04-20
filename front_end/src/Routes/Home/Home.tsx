@@ -3,7 +3,6 @@ import './Home.css'
 import { homeLoaderData } from './homeLoader';
 import { PageContainer } from '../../components/PageContainer';
 
-
 export const Home = () => {
 
     const homeData = useLoaderData() as homeLoaderData;
@@ -11,7 +10,13 @@ export const Home = () => {
 
     return (
         <section id='Home' className={state === 'loading' ? 'page-loading' : ''}>
-            <></>
+            <PageContainer title='Analiticas' from='/'>
+                <div className='Home-container'>
+                    <div className='Home-data'>
+                        {JSON.stringify(homeData)}
+                    </div>
+                </div>
+            </PageContainer>
         </section>
     )
 }

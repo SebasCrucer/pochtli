@@ -1,0 +1,69 @@
+.Table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+}
+
+.Table-rows {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Table-values-column {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+    --value-radius: 50px;
+    text-overflow: ellipsis;
+}
+
+.Table-values-column:nth-child(1) .Table-value {
+    border-radius: var(--value-radius) 0 0 var(--value-radius);
+}
+
+.Table-values-column:last-child .Table-value {
+    border-radius: 0 var(--value-radius) var(--value-radius) 0;
+}
+
+.Table-key {
+    display: block;
+    text-align: start;
+    opacity: 0.5;
+    margin-bottom: 10px;
+    padding: 0 20px
+}
+
+.Table-value {
+    display: block;
+    padding: 10px 20px;
+    opacity: 0.8;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: start;
+    height: 25px;
+}
+
+.Table-value:nth-child(odd) {
+    background-color: #8383830e;
+}
+
+.Table-value.clickable {
+    cursor: pointer;
+}
+
+.Table-value.clickable:hover {
+    opacity: 1;
+}
+
+.Product-tend.up {
+    fill: var(--green)
+}
+
+.Product-tend.down {
+    fill: var(--red);
+    transform: rotate(180deg);
+}

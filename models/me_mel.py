@@ -1,15 +1,6 @@
 import numpy as np
 
 
-def me(x: list, f_x: list, rho = 0.8) -> float:
+def me(last_fx: float, last_mu: float, rho=0.8) -> float:
+    return rho*last_mu + (1-rho)*last_fx
 
-    if not len(x) == len(f_x):
-        raise Exception("The length of the lists is not the same")
-
-    mu = np.mean(f_x)
-
-    for y in f_x[-1:]:
-        mu = rho*mu + (1 - rho)*y
-
-
-    return mu

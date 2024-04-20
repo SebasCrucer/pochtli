@@ -1,0 +1,55 @@
+.PageContainer {
+    margin: 20px 30px;
+    box-sizing: border-box;
+}
+
+.PageContainer-Options-back {
+    background-color: inherit;
+    border: none;
+    font-family: inherit;
+    font-size: 16px;
+    color: inherit;
+    font-weight: 600;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    transition: gap 0.2s;
+}
+
+
+
+.dark .PageContainer-Options-back>box-icon {
+    fill: var(--light)
+}
+
+.light .PageContainer-Options-back>box-icon {
+    fill: var(--dark)
+}
+
+.PageContainer-Options-back:hover {
+    gap: 6px
+}
+
+.PageContainerCont {
+    border: 1px solid #83838324;
+    box-sizing: border-box;
+    padding: 10px 30px;
+    margin-block: 20px;
+    border-radius: 10px;
+}
+
+.PageContainerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #83838324;
+}
+
+.PageContainerTitle {
+    font-size: 20px;
+    margin: 0;
+    opacity: 1;
+    margin-block: 8px 8px;
+}
